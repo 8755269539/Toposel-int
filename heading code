@@ -1,0 +1,52 @@
+<h2 class="ml1">
+  <span class="text-wrapper">
+    <span class="letters">FIND CLOTHES <br>THAT MATCHES YOUR STYLE</span>
+  </span>
+</h2>
+<style>
+.ml1 {
+  position: relative;
+  font-weight: 700;
+  font-size: 36px;
+  font-family:integral cf;
+  line-height: 37px;
+}
+
+.ml1 .text-wrapper {
+  position: relative;
+  display: inline-block;
+
+  padding-right: 14px;
+
+  overflow: hidden;
+}
+
+.ml1 .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+
+}
+
+</style>
+
+<script>
+    // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml1 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml1 .letter',
+    scale: [0, 1],
+    duration: 1500,
+    elasticity: 600,
+    delay: (el, i) => 45 * (i+1)
+  }).add({
+    targets: '.ml1',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+    
+</script>
